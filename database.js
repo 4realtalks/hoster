@@ -6,6 +6,8 @@ async function connectData() {
     const collection = client.db("test").collection("devices");
     // perform actions on the collection object
     client.close();
+    
+    console.log("Connected to Database.")
   });
 }
 
