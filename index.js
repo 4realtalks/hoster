@@ -23,8 +23,8 @@ const { connectData } = require("./database")
 
 client.login(process.env.DISCORD_TOKEN).then(() => {
   setInterval(() => {
-    client.user.setActivity(`${client.guilds.cache.size} server(s)`, {
-      type: ActivityType.Watching,
+    client.user.setActivity(`/help`, {
+      type: ActivityType.Playing,
     });
   });
   connectData();
