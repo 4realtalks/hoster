@@ -1,3 +1,5 @@
+const { MongoClient } = require("mongodb");
+
 async function connectData(){
     /**
      * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
