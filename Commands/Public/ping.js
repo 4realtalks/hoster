@@ -19,7 +19,7 @@ module.exports = {
   execute(interaction) {
     interaction.reply({
       content: `🏓Latency is ${
-        Date.now() - interaction.createdTimestamp
+        Date.now() - interaction.message.createdTimestamp
       }ms. API Latency is ${Math.round(client.ws.ping)}ms`,
       ephemeral: true,
     });
