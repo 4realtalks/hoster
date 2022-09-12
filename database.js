@@ -7,7 +7,7 @@ async function connectData() {
     // perform actions on the collection object
     client.close();
     
-    console.log("Connected to Database.")
+    console.log("[Database]: Connected to Database.")
   });
 }
 
