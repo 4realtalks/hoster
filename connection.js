@@ -31,4 +31,4 @@ async function Databases(client) {
   databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
 }
 
-module.exports = { main, Databases };
+module.exports = { main };

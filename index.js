@@ -27,5 +27,5 @@ client.login(process.env.DISCORD_TOKEN).then(() => {
       type: ActivityType.Watching,
     });
   });
-  main(client);
+  main();
 });
