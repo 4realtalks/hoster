@@ -20,6 +20,12 @@ const { loadEvents } = require("./Handlers/eventHandler");
 
 loadEvents(client);
 
+const { connect } = require("mongoose");
+
+connect({}, process.env.DatabaseURL).then(() =>
+  console.log("Connected to Database.")
+);
+
 client.login(process.env.DISCORD_TOKEN).then(() => {
   setInterval(() => {
     client.user.setActivity(`${client.guilds.cache.size} server(s)`, {
