@@ -1,1 +1,1 @@
-worker: npm run test
+worker: node index.js
