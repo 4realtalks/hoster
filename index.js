@@ -30,4 +30,4 @@ client.login(process.env.DISCORD_TOKEN).then(() => {
   connectData();
 });
 
-listDatabases();
+listDatabases(client);
