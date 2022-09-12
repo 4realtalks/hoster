@@ -16,7 +16,7 @@ async function connectData() {
   }
 }
 
-main().catch(console.error);
+connectData().catch(console.error);
 
 async function listDatabases(client) {
   databasesList = await client.db().admin().listDatabases();
