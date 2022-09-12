@@ -19,7 +19,7 @@ const { loadEvents } = require("./Handlers/eventHandler");
 
 loadEvents(client);
 
-const { connectData, Databases } = require("./connection");
+const { main, Databases } = require("./connection");
 
 Databases(client);
 
@@ -29,5 +29,6 @@ client.login(process.env.DISCORD_TOKEN).then(() => {
       type: ActivityType.Watching,
     });
   });
-  connectData();
+  main();
 });
+Databases();

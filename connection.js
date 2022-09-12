@@ -1,14 +1,20 @@
 const { MongoClient } = require("mongodb");
 
-async function connectData() {
+async function main() {
+  /**
+   * Connection URI. Update <username>, <password>, and <your-cluster-url> to reflect your cluster.
+   * See https://docs.mongodb.com/ecosystem/drivers/node/ for more details
+   */
   const uri = process.env.DatabaseURL;
 
   const client = new MongoClient(uri);
 
   try {
+    // Connect to the MongoDB cluster
     await client.connect();
 
-    await listDatabases(client);
+    // Make the appropriate DB calls
+    await Databases(client);
   } catch (e) {
     console.error(e);
   } finally {
@@ -16,7 +22,7 @@ async function connectData() {
   }
 }
 
-connectData().catch(console.error);
+main().catch(console.error);
 
 async function Databases(client) {
   databasesList = await client.db().admin().listDatabases();
@@ -25,4 +31,4 @@ async function Databases(client) {
   databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
 }
 
-module.exports = { connectData, Databases };
+module.exports = { main, Databases };
