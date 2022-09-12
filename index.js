@@ -5,7 +5,6 @@ const {
   Collection,
   ActivityType,
 } = require("discord.js");
-const { keepAlive } = require("./KeepAliveHandler");
 const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
 const client = new Client({
@@ -23,7 +22,7 @@ loadEvents(client);
 const { connectData } = require("./database")
 
 connectData();
-keepAlive();
+
 client.login(process.env.DISCORD_TOKEN).then(() => {
   setInterval(() => {
     client.user.setActivity(`/help`, {
