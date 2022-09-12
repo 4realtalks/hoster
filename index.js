@@ -19,7 +19,9 @@ const { loadEvents } = require("./Handlers/eventHandler");
 
 loadEvents(client);
 
-const { connectData, listDatabases } = require("./connection");
+const { connectData, Databases } = require("./connection");
+
+Databases(client);
 
 client.login(process.env.DISCORD_TOKEN).then(() => {
   setInterval(() => {
@@ -29,5 +31,3 @@ client.login(process.env.DISCORD_TOKEN).then(() => {
   });
   connectData();
 });
-
-listDatabases(client);

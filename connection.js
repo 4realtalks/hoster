@@ -18,11 +18,11 @@ async function connectData() {
 
 connectData().catch(console.error);
 
-async function listDatabases(client) {
+async function Databases(client) {
   databasesList = await client.db().admin().listDatabases();
 
   console.log("Databases:");
   databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
 }
 
-module.exports = { connectData, listDatabases };
+module.exports = { connectData, Databases };
