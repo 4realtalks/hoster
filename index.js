@@ -7,7 +7,6 @@ const {
 } = require("discord.js");
 const { Guilds, GuildMembers, GuildMessages } = GatewayIntentBits;
 const { User, Message, GuildMember, ThreadMember } = Partials;
-const keepAlive = require(`./server`);
 const client = new Client({
   intents: [Guilds, GuildMembers, GuildMessages],
   partials: [User, Message, GuildMember, ThreadMember],
@@ -20,11 +19,7 @@ const { loadEvents } = require("./Handlers/eventHandler");
 
 loadEvents(client);
 
-const { connect } = require("mongoose");
-
-connect(process.env.DatabaseURL, {}).then(() =>
-  console.log("Connected to Database.")
-);
+const { connectData, listDatabases } = require("./connection");
 
 client.login(process.env.DISCORD_TOKEN).then(() => {
   setInterval(() => {
@@ -32,5 +27,7 @@ client.login(process.env.DISCORD_TOKEN).then(() => {
       type: ActivityType.Watching,
     });
   });
+  connectData();
 });
-keepAlive();
+
+listDatabases();
