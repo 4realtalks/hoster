@@ -22,7 +22,7 @@ loadEvents(client);
 
 const { connect } = require("mongoose");
 
-connect({}, process.env.DatabaseURL).then(() =>
+connect(process.env.DatabaseURL, {}).then(() =>
   console.log("Connected to Database.")
 );
 
