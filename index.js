@@ -19,9 +19,7 @@ const { loadEvents } = require("./Handlers/eventHandler");
 
 loadEvents(client);
 
-const { main, Databases } = require("./connection");
-
-Databases(client);
+const { main } = require("./connection");
 
 client.login(process.env.DISCORD_TOKEN).then(() => {
   setInterval(() => {
@@ -29,6 +27,5 @@ client.login(process.env.DISCORD_TOKEN).then(() => {
       type: ActivityType.Watching,
     });
   });
-  main();
+  main(client);
 });
-Databases();
